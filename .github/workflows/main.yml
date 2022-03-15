@@ -26,10 +26,17 @@ jobs:
       - uses: actions/checkout@v2
       - name: setup-msbuild
         uses: microsoft/setup-msbuild@v1.1
-      - name: Update .NET SDK
-        # You may pin to the exact commit or the version.
-        # uses: martincostello/update-dotnet-sdk@e10c9a462beb874f044e32563b5b1cfaf86e7080
-        uses: martincostello/update-dotnet-sdk@v1.1.4
+
+      - name: Setup .NET build dependencies
+      # You may pin to the exact commit or the version.
+      # uses: timheuer/bootstrap-dotnet@abc2197370dc01e5fc234630d32ca8aa5469623d
+        uses: timheuer/bootstrap-dotnet@v1
+        with:
+          # What .NET SDK version to use
+          sdk: true # optional, default is true
+          # Setup MSBuild
+          msbuild: true # optional, default is true
+    
       - name: Setup NuGet.exe for use with actions
         # You may pin to the exact commit or the version.
         # uses: NuGet/setup-nuget@04b0c2b8d1b97922f67eca497d7cf0bf17b8ffe1
@@ -38,3 +45,4 @@ jobs:
         run: nuget restore MvcApplication2.sln
       - name: build solution
         run: msbuild MvcApplication2.sln /t:Build /p:Configuration=Release
+
