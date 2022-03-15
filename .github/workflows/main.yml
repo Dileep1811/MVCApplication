@@ -33,4 +33,4 @@ jobs:
       - name: restore nuget packages
         run: nuget restore MvcApplication2.sln
       - name: build solution
-        run: msbuild MvcApplication2.sln
+        run: msbuild ./MvcApplication2.sln
