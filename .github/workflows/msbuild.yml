@@ -40,3 +40,8 @@ jobs:
       with:
         name: java-app
         path: '${{ env.SOLUTION_FILE_PATH }}\MvcApplication2\bin\*'
+        
+    - name: Send Client Side Tools and Coverage Result  
+      run: 
+       export CODACY_PROJECT_TOKEN=18d49662986c47e18cd828db7196e3da
+       bash <(curl -Ls https://coverage.codacy.com/get.sh)
