@@ -39,4 +39,4 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: java-app
-        path: '${{ github.workspace }}/_PublishedWebsites/MvcApplication2/*'
+        path: '${{ github.workspace }}/MvcApplication2/_PublishedWebsites/MvcApplication2/*'
